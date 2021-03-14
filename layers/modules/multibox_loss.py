@@ -114,8 +114,8 @@ class MultiBoxLoss(nn.Module):
 
         #N = num_pos.data.sum()
         N = num_pos.data.sum().double() 
-        loss_l = loss_l.double() 
-        loss_c = loss_c.double()
+        loss_l = loss_l.double() / N
+        loss_c = loss_c.double() / N
         #loss_l /= N
         #loss_c /= N
         return loss_l, loss_c
